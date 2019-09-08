@@ -8,10 +8,8 @@ const Tile = preload("./tile.gd")
 
 var tiles = []
 
+var names = {}
 
-
-func _init():
-	pass
 
 
 
@@ -21,3 +19,11 @@ func add_tile(bid: int, bbg: Color, bfg: Color, fid: int, fbg: Color, ffg: Color
 	return t
 
 
+
+func name_tile(id: int, n: String):
+	names[n] = id
+	return self
+
+func import_names(d: Dictionary):
+	for k in d.keys():
+		name_tile(d[k], k)
