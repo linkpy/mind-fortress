@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+
+const Tileset = preload(\"res://world/tileset.gd\")
+const Chunk = preload(\"res://world/chunk.gd\")
+
+
+var chunk 
+
+
+func _ready():
+	chunk = Chunk.new()
+	update()
+
+
+func _draw():
+	chunk.draw_at(0, 0, self, 5)
+"
+
+[node name="test" type="Node2D"]
+script = SubResource( 1 )
